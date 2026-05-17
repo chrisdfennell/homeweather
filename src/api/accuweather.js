@@ -49,6 +49,5 @@ export function dailyForecast(locationKey, metric = false) {
 }
 
 export function iconUrl(iconNumber) {
-  const n = String(iconNumber).padStart(2, '0')
-  return `https://developer.accuweather.com/sites/default/files/${n}-s.png`
+  return `https://www.awxcdn.com/adc-assets/images/weathericons/${iconNumber}.svg`
 }

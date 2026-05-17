@@ -55,9 +55,9 @@ export default function RadarMap({ lat, lon }) {
     if (typeof lat !== 'number' || typeof lon !== 'number') return
     const conn = connectBlitzortung((strike) => {
       setStrikes((prev) => {
-        const next = [...prev, strike]
+        if (prev.some((s) => s.id === strike.id)) return prev
         const cutoff = Date.now() - 15 * 60 * 1000
-        return next.filter((s) => s.time >= cutoff).slice(-500)
+        return [...prev, strike].filter((s) => s.time >= cutoff).slice(-500)
       })
     })
     const cleaner = setInterval(() => {
