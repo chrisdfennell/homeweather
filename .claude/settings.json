@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "PowerShell(npm install --no-audit --no-fund 2>&1)",
-      "PowerShell(npm run build 2>&1)"
+      "PowerShell(npm run build 2>&1)",
+      "PowerShell(gh auth status 2>&1)",
+      "PowerShell(git config user.email)",
+      "PowerShell(git config user.name)",
+      "PowerShell(git check-ignore -v package.json src/App.jsx 2>&1)",
+      "PowerShell(\"---\")"
     ]
   }
 }
