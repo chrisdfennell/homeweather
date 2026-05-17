@@ -48,6 +48,15 @@ export function dailyForecast(locationKey, metric = false) {
   return get(`/forecasts/v1/daily/5day/${locationKey}`, { details: 'true', metric })
 }
 
+export async function alerts(locationKey) {
+  try {
+    const data = await get(`/alerts/v1/${locationKey}`, { details: 'true' })
+    return Array.isArray(data) ? data : []
+  } catch {
+    return []
+  }
+}
+
 export function iconUrl(iconNumber) {
   return `https://www.awxcdn.com/adc-assets/images/weathericons/${iconNumber}.svg`
 }
